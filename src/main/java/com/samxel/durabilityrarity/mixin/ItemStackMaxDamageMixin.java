@@ -4,24 +4,23 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 
-@Mixin(ItemStack.class)
+@Mixin(value = ItemStack.class, priority = 2000)
 public class ItemStackMaxDamageMixin {
 
-    @Inject(
-        method = "getMaxDamage",
-        at = @At("HEAD"),
-        cancellable = true
+    @ModifyReturnValue(
+            method = "getMaxDamage",
+            at = @At("RETURN")
     )
-    private void injectRarityMaxDurability(CallbackInfoReturnable<Integer> cir) {
+    private int injectRarityMaxDurability(int original) {
         ItemStack stack = (ItemStack) (Object) this;
         if (stack.hasTag()) {
             CompoundTag tag = stack.getTag();
             if (tag != null && tag.contains("rarity_max_durability")) {
-                cir.setReturnValue(tag.getInt("rarity_max_durability"));
+                return tag.getInt("rarity_max_durability");
             }
         }
+        return original;
     }
 }
