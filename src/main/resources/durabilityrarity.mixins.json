@@ -5,7 +5,6 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "durabilityrarity.refmap.json",
   "mixins": [
-    "ItemBarWidthMixin",
     "ItemStackMaxDamageMixin"
   ],
   "client": [],
