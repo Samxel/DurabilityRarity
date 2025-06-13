@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.samxel.durabilityrarity.mixin",
+  "mixins": [
+    "ItemBarWidthMixin",
+    "ItemStackMaxDamageMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
