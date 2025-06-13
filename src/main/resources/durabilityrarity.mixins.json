@@ -1,6 +1,9 @@
 {
   "required": true,
+  "minVersion": "0.8",
   "package": "com.samxel.durabilityrarity.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "durabilityrarity.refmap.json",
   "mixins": [
     "ItemBarWidthMixin",
     "ItemStackMaxDamageMixin"
