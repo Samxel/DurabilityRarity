@@ -6,13 +6,11 @@
 
 <p align="center">
   <b>Available at:</b><br>
-  <a href="#">
-    <!-- Add CurseForge Link when available -->
+  <a href="https://www.curseforge.com/minecraft/mc-mods/durabilityrarity">
     <img src="https://img.shields.io/badge/CurseForge-Download-orange?logo=curseforge&style=for-the-badge" alt="CurseForge">
   </a>
-  <a href="#">
-    <!-- Add Modrinth Link when available -->
-    <img src="https://img.shields.io/badge/Modrinth-Coming Soon-red?logo=modrinth&style=for-the-badge" alt="Modrinth">
+  <a href="https://modrinth.com/mod/durabilityrarity">
+    <img src="https://img.shields.io/badge/Modrinth-Download-brightgreen?logo=modrinth&style=for-the-badge" alt="Modrinth">
   </a>
 </p>
 
