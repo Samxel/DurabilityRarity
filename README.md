@@ -8,7 +8,7 @@
   <b>Available at:</b><br>
   <a href="#">
     <!-- Add CurseForge Link when available -->
-    <img src="https://img.shields.io/badge/CurseForge-Coming Soon-red?logo=curseforge&style=for-the-badge" alt="CurseForge">
+    <img src="https://img.shields.io/badge/CurseForge-Download-orange?logo=curseforge&style=for-the-badge" alt="CurseForge">
   </a>
   <a href="#">
     <!-- Add Modrinth Link when available -->
