@@ -39,10 +39,20 @@ public class Config {
             .defineInRange("legendary", 5, 0, 100);
     static { BUILDER.pop(); }
 
+    static { BUILDER.push("miningspeed"); }
+    public static final ForgeConfigSpec.DoubleValue LEGENDARY_MININGSPEED = BUILDER
+            .defineInRange("legendary", 1.1, 0.0, 10.0);
+    static { BUILDER.pop(); }
+
+    public static double getLegendaryMiningSpeed() {
+        return LEGENDARY_MININGSPEED.get();
+    }
+
+
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
-    private static double[] multipliers = new double[6];
-    private static int[] chances = new int[6];
+    private static final double[] multipliers = new double[6];
+    private static final int[] chances = new int[6];
 
     public static double getMultiplier(RarityUtil.RarityClass rarity) {
         return multipliers[rarity.ordinal()];
