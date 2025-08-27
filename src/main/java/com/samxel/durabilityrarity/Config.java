@@ -9,7 +9,10 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 public class Config {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
-    static { BUILDER.push("multipliers"); }
+    static {
+        BUILDER.push("multipliers");
+    }
+
     public static final ForgeConfigSpec.DoubleValue BROKEN_MULTIPLIER = BUILDER
             .defineInRange("broken", 0.3, 0.01, 10.0);
     public static final ForgeConfigSpec.DoubleValue DAMAGED_MULTIPLIER = BUILDER
@@ -22,9 +25,15 @@ public class Config {
             .defineInRange("epic", 1.6, 0.01, 10.0);
     public static final ForgeConfigSpec.DoubleValue LEGENDARY_MULTIPLIER = BUILDER
             .defineInRange("legendary", 1.9, 0.01, 10.0);
-    static { BUILDER.pop(); }
 
-    static { BUILDER.push("chances"); }
+    static {
+        BUILDER.pop();
+    }
+
+    static {
+        BUILDER.push("chances");
+    }
+
     public static final ForgeConfigSpec.IntValue BROKEN_CHANCE = BUILDER
             .defineInRange("broken", 15, 0, 100);
     public static final ForgeConfigSpec.IntValue DAMAGED_CHANCE = BUILDER
@@ -37,17 +46,25 @@ public class Config {
             .defineInRange("epic", 10, 0, 100);
     public static final ForgeConfigSpec.IntValue LEGENDARY_CHANCE = BUILDER
             .defineInRange("legendary", 5, 0, 100);
-    static { BUILDER.pop(); }
 
-    static { BUILDER.push("miningspeed"); }
-    public static final ForgeConfigSpec.DoubleValue LEGENDARY_MININGSPEED = BUILDER
-            .defineInRange("legendary", 1.1, 0.0, 10.0);
-    static { BUILDER.pop(); }
-
-    public static double getLegendaryMiningSpeed() {
-        return LEGENDARY_MININGSPEED.get();
+    static {
+        BUILDER.pop();
     }
 
+    static {
+        BUILDER.push("attack and miningspeed multiplier");
+    }
+
+    public static final ForgeConfigSpec.DoubleValue LEGENDARY_SPEED = BUILDER
+            .defineInRange("legendary", 1.1, 0.0, 10.0);
+
+    static {
+        BUILDER.pop();
+    }
+
+    public static double getLegendarySpeed() {
+        return LEGENDARY_SPEED.get();
+    }
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 

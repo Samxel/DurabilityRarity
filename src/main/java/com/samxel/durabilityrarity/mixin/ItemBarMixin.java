@@ -1,11 +1,11 @@
 package com.samxel.durabilityrarity.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 
 @Mixin(value = Item.class, priority = 2000)
 public class ItemBarMixin {

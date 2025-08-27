@@ -8,20 +8,46 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Mod.EventBusSubscriber(modid = DurabilityRarity.MODID, value = Dist.CLIENT)
 public class TooltipHandler {
 
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
+        List<Component> toolTip = event.getToolTip();
+
         if (stack.hasTag() && stack.getTag().contains("rarity_class")) {
             String rarityName = stack.getTag().getString("rarity_class");
             RarityUtil.RarityClass rarity = RarityUtil.RarityClass.valueOf(rarityName);
 
             Component rarityComponent = Component.literal(getRarityDisplayName(rarity))
-                .withStyle(getRarityColor(rarity));
+                    .withStyle(getRarityColor(rarity));
 
-            event.getToolTip().add(1, rarityComponent);
+            toolTip.add(1, rarityComponent);
+        }
+
+
+        List<Component> plusAttackSpeed = new ArrayList<>();
+        for (Component line : toolTip) {
+            String text = line.getString();
+            if (text.startsWith("+") && text.contains("Attack Speed")) {
+                plusAttackSpeed.add(line);
+            }
+        }
+
+        toolTip.removeAll(plusAttackSpeed);
+
+        for (Component plusLine : plusAttackSpeed) {
+            for (int i = 0; i < toolTip.size(); i++) {
+                String baseText = toolTip.get(i).getString();
+                if (!baseText.startsWith("+") && baseText.contains("Attack Speed")) {
+                    toolTip.add(i + 1, plusLine);
+                    break;
+                }
+            }
         }
     }
 

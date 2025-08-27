@@ -21,7 +21,7 @@ public class MiningSpeedHandler {
                 RarityUtil.RarityClass rarity = RarityUtil.RarityClass.valueOf(rarityName);
 
                 if (rarity == RarityUtil.RarityClass.LEGENDARY) {
-                    double multiplier = Config.getLegendaryMiningSpeed();
+                    double multiplier = Config.getLegendarySpeed();
                     event.setNewSpeed((float) (event.getNewSpeed() * multiplier));
                 }
             }
